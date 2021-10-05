@@ -21,6 +21,19 @@ class DefaultFilesystem implements FileSystem
     }
 
     /**
+     * @param string $path
+     * @return array
+     * @throws IOException
+     */
+    public function scanDirectory(string $path): array
+    {
+        if (!$result = scandir($path)) {
+            throw new IOException(sprintf('Invalid path: %s', $path));
+        }
+        return array_slice($result, 2);
+    }
+
+    /**
      * @param string $filename
      * @return bool
      */

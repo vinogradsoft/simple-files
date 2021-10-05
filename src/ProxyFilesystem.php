@@ -46,6 +46,16 @@ class ProxyFilesystem implements Filesystem
     }
 
     /**
+     * @param string $path
+     * @return array
+     * @throws IOException
+     */
+    public function scanDirectory(string $path): array
+    {
+        return $this->filesystem->scanDirectory($path);
+    }
+
+    /**
      * @param string $filename
      * @return bool
      */
