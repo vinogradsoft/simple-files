@@ -160,7 +160,7 @@ class File extends AbstractFile
     /**
      * @return string
      */
-    public function getSource()
+    public function getSourcePath(): string
     {
         return $this->pathObject->getSource();
     }

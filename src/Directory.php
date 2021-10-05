@@ -145,7 +145,7 @@ class Directory extends AbstractDirectory
     /**
      * @return string
      */
-    public function getSource(): string
+    public function getSourcePath(): string
     {
         return $this->pathObject->getSource();
     }
@@ -252,7 +252,7 @@ class Directory extends AbstractDirectory
         /** @var Directory $directory */
         foreach ($this->directories as $directory) {
             if ($directory->isBinded()) {
-                $result[] = $directory->getSource();
+                $result[] = $directory->getSourcePath();
             }
             $result = array_merge($result, $directory->getPathsOfChildDirectoriesRecursive());
         }
@@ -281,7 +281,7 @@ class Directory extends AbstractDirectory
         /** @var File $file */
         foreach ($this->files as $file) {
             if ($file->isBinded()) {
-                $result[] = $file->getSource();
+                $result[] = $file->getSourcePath();
             }
         }
         return $result;

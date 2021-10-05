@@ -124,7 +124,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      */
     protected function copyOrMove(File $file, Filesystem $filesystem, string $path, string $keyOperation)
     {
-        $this->read($file, $filesystem, $file->getSource());
+        $this->read($file, $filesystem, $file->getSourcePath());
         $file->fireBeforeWriteEvent($keyOperation);
         $filesystem->filePutContents($path, $file->getContent());
     }
@@ -173,7 +173,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      */
     public function remove(AbstractFile $file, Filesystem $filesystem)
     {
-        $path = $file->getSource();
+        $path = $file->getSourcePath();
         if ($filesystem->exists($path)) {
             $filesystem->removeFile($path);
         } else {
