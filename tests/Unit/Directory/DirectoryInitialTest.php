@@ -83,6 +83,18 @@ class DirectoryInitialTest extends FileSystemCase
         ];
     }
 
+    public function testGetSourcePath()
+    {
+        $directory = new Directory('tests');
+        self::assertEquals('tests', $directory->getSourcePath());
+    }
+
+    public function testGetSourcePathWithBinded()
+    {
+        $directory = Directory::createBinded($this->outPath);
+        self::assertEquals($this->outPath, $directory->getSourcePath());
+    }
+
     public function tearDown(): void
     {
         FileFunctionalitiesContext::reset();

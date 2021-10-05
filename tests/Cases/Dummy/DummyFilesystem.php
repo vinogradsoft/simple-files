@@ -3,6 +3,7 @@
 namespace Test\Cases\Dummy;
 
 use PHPUnit\Framework\TestCase;
+use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Filesystem;
 
 class DummyFilesystem implements Filesystem
@@ -66,5 +67,10 @@ class DummyFilesystem implements Filesystem
     public function yamlParseFile($filename, $pos = 0, &$ndocs = null, array $callbacks = [])
     {
         return $filename;
+    }
+
+    public function scanDirectory(string $path): array
+    {
+        return [$path];
     }
 }

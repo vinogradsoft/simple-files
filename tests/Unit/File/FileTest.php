@@ -15,10 +15,16 @@ class FileTest extends AdditionalAssertCase
 
     }
 
-    public function testGetSource()
+    public function testGetSourcePath()
     {
         $file = new File('tests');
-        self::assertEquals('tests', $file->getSource());
+        self::assertEquals('tests', $file->getSourcePath());
+    }
+
+    public function testGetSourcePathWithBinded()
+    {
+        $file = File::createBinded(__FILE__);
+        self::assertEquals(__FILE__, $file->getSourcePath());
     }
 
     public function testSetContent()

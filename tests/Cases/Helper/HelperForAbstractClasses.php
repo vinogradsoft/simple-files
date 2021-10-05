@@ -2,6 +2,7 @@
 
 namespace Test\Cases\Helper;
 
+use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Filesystem;
 use Vinograd\Path\Path;
 use Vinograd\SimpleFiles\AbstractDirectory;
@@ -66,6 +67,11 @@ class HelperForAbstractClasses
             }
 
             public function isFile(string $filename): bool
+            {
+                throw new \Exception('assert');
+            }
+
+            public function scanDirectory(string $path): array
             {
                 throw new \Exception('assert');
             }
