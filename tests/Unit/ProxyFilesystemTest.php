@@ -32,7 +32,7 @@ class ProxyFilesystemTest extends TestCase
         self::assertEquals('affected', $proxyFilesystem->yamlParseFile('affected'));
         self::assertTrue($proxyFilesystem->isFile('affected'));
         self::assertEquals('affected', $proxyFilesystem->getAbsolutePath('affected'));
-
+        self::assertEquals(['affected'],$proxyFilesystem->scanDirectory('affected'));
     }
 
     public function testSetFilesystem()
