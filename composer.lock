@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vinogradsoft/io-contract.git",
-                "reference": "cfd0aa7a912b9a746aef80e2a3a580f2bd8d334a"
+                "reference": "b35d494731e8f9ff93f8bbbfd8944906b1ace13c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinogradsoft/io-contract/zipball/cfd0aa7a912b9a746aef80e2a3a580f2bd8d334a",
-                "reference": "cfd0aa7a912b9a746aef80e2a3a580f2bd8d334a",
+                "url": "https://api.github.com/repos/vinogradsoft/io-contract/zipball/b35d494731e8f9ff93f8bbbfd8944906b1ace13c",
+                "reference": "b35d494731e8f9ff93f8bbbfd8944906b1ace13c",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "issues": "https://github.com/vinogradsoft/io-contract/issues",
                 "source": "https://github.com/vinogradsoft/io-contract/tree/1.0.0"
             },
-            "time": "2021-09-19T19:04:36+00:00"
+            "time": "2021-10-05T23:47:29+00:00"
         },
         {
             "name": "vinogradsoft/path",
@@ -600,16 +600,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/a12f7e301eb7258bb68acd89d4aefa05c2906cae",
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae",
                 "shasum": ""
             },
             "require": {
@@ -644,9 +644,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.1"
             },
-            "time": "2021-09-17T15:28:14+00:00"
+            "time": "2021-10-02T14:08:47+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -1018,12 +1018,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "827d2111386ca92d340ccad2eeca2d4c7db64dcb"
+                "reference": "50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/827d2111386ca92d340ccad2eeca2d4c7db64dcb",
-                "reference": "827d2111386ca92d340ccad2eeca2d4c7db64dcb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984",
+                "reference": "50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984",
                 "shasum": ""
             },
             "require": {
@@ -1095,7 +1095,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.21"
             },
             "funding": [
                 {
@@ -1107,7 +1107,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-16T05:20:03+00:00"
+            "time": "2021-09-25T07:37:20+00:00"
         },
         {
             "name": "psr/container",
