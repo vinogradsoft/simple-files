@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
 use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Exception\NotFoundException;
-use Vinograd\Path\Path;
+use Compass\Path;
 use Vinograd\SimpleFiles\Functionality\DirectoryFunctionality;
 
 class Directory extends AbstractDirectory

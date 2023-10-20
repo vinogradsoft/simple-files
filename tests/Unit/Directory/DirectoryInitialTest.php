@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\Directory;
 
@@ -29,7 +30,7 @@ class DirectoryInitialTest extends FileSystemCase
         self::assertTrue($functionality->has('copy'));
         self::assertTrue($functionality->has('delete'));
         self::assertTrue($functionality->has('assertInitBind'));
-        self::assertDirectoryNotExists($directory->getPath()->getSource());
+        self::assertDirectoryDoesNotExist($directory->getPath()->getSource());
     }
 
     public function testConstructEmpty()

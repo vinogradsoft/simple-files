@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit;
 
-use Vinograd\Path\Path;
+use Compass\Path;
 use Vinograd\SimpleFiles\FilesystemObject;
 use PHPUnit\Framework\TestCase;
 

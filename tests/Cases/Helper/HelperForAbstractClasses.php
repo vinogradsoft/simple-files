@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Cases\Helper;
 
-use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Filesystem;
-use Vinograd\Path\Path;
+use Compass\Path;
 use Vinograd\SimpleFiles\AbstractDirectory;
 use Vinograd\SimpleFiles\AbstractFile;
 use Vinograd\SimpleFiles\GetExtensionTrait;

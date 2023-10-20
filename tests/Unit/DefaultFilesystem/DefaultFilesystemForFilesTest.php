@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\DefaultFilesystem;
 
@@ -53,7 +54,7 @@ class DefaultFilesystemForFilesTest extends FileSystemCase
     public function testRemoveFile()
     {
         $this->filesystem->removeFile($this->testFile);
-        $this->assertFileNotExists($this->testFile);
+        $this->assertFileDoesNotExist($this->testFile);
     }
 
     public function testRemoveFileExcept()

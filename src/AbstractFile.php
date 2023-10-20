@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -85,6 +86,6 @@ abstract class AbstractFile extends NestedObject
      */
     public function getSourceExtension(): string
     {
-        return $this->getExtensionImpl($this->pathObject->getName());
+        return $this->getExtensionImpl((string)$this->pathObject->getLast());
     }
 }

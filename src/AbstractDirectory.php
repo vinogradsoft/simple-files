@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
 use Vinograd\IO\Exception\AlreadyExistException;
 use Vinograd\IO\Exception\NotFoundException;
-use Vinograd\Path\Path;
 use Vinograd\SimpleFiles\Exception\TreeException;
 
 abstract class AbstractDirectory extends NestedObject

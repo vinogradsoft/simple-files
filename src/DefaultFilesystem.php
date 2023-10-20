@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -104,6 +105,7 @@ class DefaultFilesystem implements FileSystem
      */
     public function filePutContents(string $filename, $data, int $flags = 0): void
     {
+        $data = (string)$data;
         $result = @file_put_contents($filename, $data, $flags);
         if ($result !== strlen($data)) {
             throw new IOException(sprintf('Unable to write to file "%s".', $filename));

@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\File;
 
 use Test\Cases\AdditionalAssertCase;
 use Vinograd\IO\Exception\IOException;
-use Vinograd\Path\Exception\InvalidPathException;
+use Compass\Exception\InvalidPathException;
 use Vinograd\SimpleFiles\File;
 
 class FileMoveTest extends AdditionalAssertCase
@@ -20,7 +21,7 @@ class FileMoveTest extends AdditionalAssertCase
         $file->move($moveDir);
 
         self::assertFileExists($moveDir . '/test.file');
-        self::assertFileNotExists($filePath);
+        self::assertFileDoesNotExist($filePath);
 
         self::assertEquals('content', file_get_contents($moveDir . '/test.file'));
     }
@@ -35,7 +36,7 @@ class FileMoveTest extends AdditionalAssertCase
         $file->move($moveDir);
 
         self::assertFileExists($moveDir . '/fileRenamed.txt');
-        self::assertFileNotExists($filePath);
+        self::assertFileDoesNotExist($filePath);
 
         self::assertEquals('content', file_get_contents($moveDir . '/fileRenamed.txt'));
     }

@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\File;
 
 use Test\Cases\AdditionalAssertCase;
 use Vinograd\IO\Exception\IOException;
-use Vinograd\Path\Exception\InvalidPathException;
+use Compass\Exception\InvalidPathException;
 use Vinograd\SimpleFiles\File;
 
 class FileWriteToTest extends AdditionalAssertCase

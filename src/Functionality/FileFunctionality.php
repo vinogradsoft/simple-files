@@ -1,11 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles\Functionality;
 
 use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Exception\NotFoundException;
 use Vinograd\IO\Filesystem;
-use Vinograd\Path\Exception\InvalidPathException;
+use Compass\Exception\InvalidPathException;
 use Vinograd\SimpleFiles\AbstractFile;
 use Vinograd\SimpleFiles\AbstractFilesystemFunctionality;
 use Vinograd\SimpleFiles\File;

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -31,7 +32,7 @@ class NestedObject extends FilesystemObject
      */
     public function getName(): string
     {
-        return $this->pathObject->getName();
+        return (string)$this->pathObject->getLast();
     }
 
     /**
@@ -40,7 +41,7 @@ class NestedObject extends FilesystemObject
     public function getLocalName(): string
     {
         if (empty($this->localName)) {
-            return $this->pathObject->getName();
+            return (string)$this->pathObject->getLast();
         }
         return $this->localName;
     }

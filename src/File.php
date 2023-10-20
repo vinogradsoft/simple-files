@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
-use Vinograd\Path\Path;
+use Compass\Path;
 use Vinograd\SimpleFiles\Event\FileBeforeWriteListener;
 use Vinograd\SimpleFiles\Functionality\FileFunctionality;
 

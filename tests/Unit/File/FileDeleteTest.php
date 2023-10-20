@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\File;
 
@@ -15,7 +16,7 @@ class FileDeleteTest extends AdditionalAssertCase
         $this->createFile($filePath = $this->outPath . '/test.file', 'content');
         $file = File::createBinded($filePath);
         $file->delete();
-        self::assertFileNotExists($filePath);
+        self::assertFileDoesNotExist($filePath);
     }
 
     public function testDeleteWithSetLocalName()
@@ -24,7 +25,7 @@ class FileDeleteTest extends AdditionalAssertCase
         $file = File::createBinded($filePath);
         $file->setLocalName('fileRenamed.txt');
         $file->delete();
-        self::assertFileNotExists($filePath);
+        self::assertFileDoesNotExist($filePath);
     }
 
     public function testDeleteNotFoundException()

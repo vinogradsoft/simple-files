@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit;
 
@@ -54,7 +55,7 @@ class AbstractFileTest extends FileSystemCase
         $file = HelperForAbstractClasses::mockFile($filePath);
         $file->delete();
 
-        self::assertFileNotExists($filePath);
+        self::assertFileDoesNotExist($filePath);
     }
 
     /**

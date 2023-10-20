@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\Directory\BindWithFilesystem;
 
@@ -181,13 +182,13 @@ class BeforeBindedFilesystemWithRemoveFilesTest extends FileSystemCase
         $childL->bindWithFilesystem($outPath);
 
         self::assertDirectoryExists($outPath . '/childL/root/child1/child2/child3/child4/child5');
-        self::assertFileNotExists($outPath . '/childL/file1.txt');
-        self::assertFileNotExists($outPath . '/childL/root/file7.txt');
-        self::assertFileNotExists($outPath . '/childL/root/child1/file6.txt');
-        self::assertFileNotExists($outPath . '/childL/root/child1/child2/file5.txt');
-        self::assertFileNotExists($outPath . '/childL/root/child1/child2/child3/file4.txt');
-        self::assertFileNotExists($outPath . '/childL/root/child1/child2/child3/child4/file3.txt');
-        self::assertFileNotExists($outPath . '/childL/root/child1/child2/child3/child4/child5/file2.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/file1.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/file7.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/child1/file6.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/child1/child2/file5.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/child1/child2/child3/file4.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/child1/child2/child3/child4/file3.txt');
+        self::assertFileDoesNotExist($outPath . '/childL/root/child1/child2/child3/child4/child5/file2.txt');
     }
 
     public function tearDown(): void
