@@ -35,3 +35,4 @@ tests/_support/_generated
 
 /cli
 /composer.lock
+/public_html
