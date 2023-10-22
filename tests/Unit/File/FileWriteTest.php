@@ -45,7 +45,7 @@ class FileWriteTest extends AdditionalAssertCase
         self::assertEquals('change content', file_get_contents($this->outPath . '/test.file'));
     }
 
-    public function testWriteBindedWithSetLocalName()
+    public function testWriteSetLocalNameAfterBinded()
     {
         $file = new File('test.file');
         $file->bindWithFilesystem($this->outPath);
@@ -55,6 +55,19 @@ class FileWriteTest extends AdditionalAssertCase
 
         self::assertFileExists($this->outPath . '/test.file');
         self::assertEquals('change content', file_get_contents($this->outPath . '/test.file'));
+    }
+
+    public function testWriteSetLocalNameBeforeBinded()
+    {
+        $file = new File('test.file');
+        $file->setLocalName('fileRenamed.txt');
+        $file->bindWithFilesystem($this->outPath);
+        $file->setContent('change content');
+
+        $file->write();
+
+        self::assertFileExists($this->outPath . '/fileRenamed.txt');
+        self::assertEquals('change content', file_get_contents($this->outPath . '/fileRenamed.txt'));
     }
 
     public function testWriteNotBinded()
