@@ -23,7 +23,6 @@ try{
 }catch (\Vinograd\IO\Exception\NotFoundException $exception){
     echo $exception->getMessage();
 }
-
 ```
 
 [К оглавлению](../../README.md#руководство)

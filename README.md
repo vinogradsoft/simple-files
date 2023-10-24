@@ -33,7 +33,7 @@ php composer require vinogradsoft/simple-files "^2.0"
 
 ### Работа с директориями
 
-* [Работа с вложенностью директорий](./docs/guide-ru/stub.md)
+* [Структурные методы директорий](./docs/guide-ru/directory-structural-methods.md)
 * [Копирование директорий](./docs/guide-ru/stub.md)
 * [Перемещение директорий](./docs/guide-ru/stub.md)
 * [Удаление директорий](./docs/guide-ru/stub.md)
@@ -48,7 +48,9 @@ php composer require vinogradsoft/simple-files "^2.0"
 
 ## Тестировать
 
-``` php composer tests ```
+```
+ php composer tests 
+```
 
 ## Содействие
 
