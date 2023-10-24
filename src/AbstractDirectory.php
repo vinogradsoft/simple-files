@@ -10,6 +10,8 @@ use Vinograd\SimpleFiles\Exception\TreeException;
 abstract class AbstractDirectory extends NestedObject
 {
 
+    protected const ALREADY_EXISTS_MESSAGE = 'A directory or file named "%s" already exists.';
+
     /**@var AbstractDirectory[] */
     protected $directories = [];
 
@@ -32,8 +34,8 @@ abstract class AbstractDirectory extends NestedObject
     public function addDirectory(AbstractDirectory $directory): AbstractDirectory
     {
         $name = $directory->getLocalName();
-        if (array_key_exists($name, $this->directories)) {
-            throw new AlreadyExistException(sprintf('Directory %s already exists.', $this->directories[$name]->getPath()->getSource()));
+        if (array_key_exists($name, $this->directories) || array_key_exists($name, $this->files)) {
+            throw new AlreadyExistException(sprintf(static::ALREADY_EXISTS_MESSAGE, $name));
         }
         $parent = $directory->getParent();
 
@@ -109,7 +111,7 @@ abstract class AbstractDirectory extends NestedObject
     public function removeFromParent(): void
     {
         if (empty($this->parent)) {
-            return ;
+            return;
         }
         $this->parent->removeDirectory($this);
     }
@@ -154,8 +156,8 @@ abstract class AbstractDirectory extends NestedObject
     public function addFile(AbstractFile $file): void
     {
         $name = $file->getLocalName();
-        if (array_key_exists($name, $this->files)) {
-            throw new AlreadyExistException('File already exists.');
+        if (array_key_exists($name, $this->directories) || array_key_exists($name, $this->files)) {
+            throw new AlreadyExistException(sprintf(static::ALREADY_EXISTS_MESSAGE, $name));
         }
         $parent = $file->getParent();
         if (!empty($parent)) {
