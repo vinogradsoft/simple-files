@@ -13,7 +13,7 @@
 Запустите команду
 
 ```
-php composer require vinogradsoft/simple-files "^2.0"
+composer require vinogradsoft/simple-files "^2.0"
 ```
 
 ## Руководство
@@ -34,7 +34,7 @@ php composer require vinogradsoft/simple-files "^2.0"
 ### Работа с директориями
 
 * [Структурные методы директорий](./docs/guide-ru/directory-structural-methods.md)
-* [Копирование директорий](./docs/guide-ru/stub.md)
+* [Копирование директорий](./docs/guide-ru/copying-directories.md)
 * [Перемещение директорий](./docs/guide-ru/stub.md)
 * [Удаление директорий](./docs/guide-ru/stub.md)
 
