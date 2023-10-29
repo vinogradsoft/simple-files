@@ -20,7 +20,7 @@ composer require vinogradsoft/simple-files "^2.0"
 
 ### Общая работа с библиотекой
 
-* [Варианты создания файлов и директорий](./docs/guide-ru/options-for-creating-files-and-directories.md)
+* [Варианты создания объектов файлов и директорий](./docs/guide-ru/options-for-creating-file-and-directory-objects.md)
 
 ### Работа с файлами
 
@@ -33,8 +33,11 @@ composer require vinogradsoft/simple-files "^2.0"
 
 ### Работа с директориями
 
+* [Объектная модель файловой системы](./docs/guide-ru/file-system-object-model.md)
 * [Структурные методы директорий](./docs/guide-ru/directory-structural-methods.md)
+* [Прикладные методы директорий](./docs/guide-ru/applied-methods.md)
 * [Копирование директорий](./docs/guide-ru/copying-directories.md)
+* [Создание директорий](./docs/guide-ru/stub.md)
 * [Перемещение директорий](./docs/guide-ru/stub.md)
 * [Удаление директорий](./docs/guide-ru/stub.md)
 
