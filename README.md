@@ -10,6 +10,8 @@
 - Минимальная версия php 8.0
 - Предпочтительный способ установки - через [composer](http://getcomposer.org/download/).
 
+> Windows не поддерживается.
+
 Запустите команду
 
 ```
@@ -37,7 +39,7 @@ composer require vinogradsoft/simple-files "^2.0"
 * [Структурные методы директорий](./docs/guide-ru/directory-structural-methods.md)
 * [Прикладные методы директорий](./docs/guide-ru/applied-methods.md)
 * [Копирование директорий](./docs/guide-ru/copying-directories.md)
-* [Создание директорий](./docs/guide-ru/stub.md)
+* [Запись директорий](./docs/guide-ru/writing-directories.md)
 * [Перемещение директорий](./docs/guide-ru/stub.md)
 * [Удаление директорий](./docs/guide-ru/stub.md)
 
