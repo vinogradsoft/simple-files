@@ -60,7 +60,7 @@ class NestedObject extends FilesystemObject
      */
     public function getLocalPath(string $prefix = ''): string
     {
-        return $prefix . implode(DIRECTORY_SEPARATOR, $this->getLocalArrayPath());
+        return $prefix . implode($this->pathObject->getSeparator(), $this->getLocalArrayPath());
     }
 
     /**
