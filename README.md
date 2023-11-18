@@ -41,7 +41,7 @@ composer require vinogradsoft/simple-files "^2.0"
 * [Копирование директорий](./docs/guide-ru/copying-directories.md)
 * [Запись директорий](./docs/guide-ru/writing-directories.md)
 * [Перемещение директорий](./docs/guide-ru/moving-directories.md)
-* [Удаление директорий](./docs/guide-ru/stub.md)
+* [Удаление директорий](./docs/guide-ru/removing-directories.md)
 
 ### Работа с функциональностями
 
