@@ -17,7 +17,7 @@ $file->delete();
 
 ```php
 $file = File::createBinded('path/to/file.txt');
-\rmdir('path/to/file.txt');
+\unlink('path/to/file.txt');
 try{
     $file->delete();
 }catch (\Vinograd\IO\Exception\NotFoundException $exception){

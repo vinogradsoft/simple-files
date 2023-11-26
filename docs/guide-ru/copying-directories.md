@@ -245,7 +245,7 @@ php copy -v=VendorName -m=ModuleName
 cd path/to/cloned/example/bin/
 ```
 
-Где `path/to/cloned` та папка, в которую вы скачали пример.
+Где `path/to/cloned` та папка, в которую вы скачали пример.   
 После этого можно создавать новые модули командой `php copy -v=<Vendor Name> -m=<Module Name>`.
 Повторный вызов команды с теми же параметрами приведет к перезаписи файлов `package.xml` и `composer.json` в модуле.
 
