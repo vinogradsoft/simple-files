@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -11,7 +12,7 @@ abstract class AbstractFilesystemObject implements SupportedFunctionalities
     /**
      * @param Functionality $functionality
      */
-    protected function addFunctionality(Functionality $functionality)
+    protected function addFunctionality(Functionality $functionality): void
     {
         $functionality->install($this);
     }
@@ -19,7 +20,7 @@ abstract class AbstractFilesystemObject implements SupportedFunctionalities
     /**
      * @param Functionality $functionality
      */
-    protected function removeFunctionality(Functionality $functionality)
+    protected function removeFunctionality(Functionality $functionality): void
     {
         $functionality->uninstall($this);
     }
@@ -29,13 +30,13 @@ abstract class AbstractFilesystemObject implements SupportedFunctionalities
      * @param $args
      * @return mixed
      */
-    public function __call($method, $args)
+    public function __call($method, $args): mixed
     {
         return FileFunctionalitiesContext::getFunctionalitySupport($this)->fireCallMethodEvent($this, $method, $args);
     }
 
     /**
-     *
+     * @return void
      */
     public function revokeAllSupports(): void
     {
@@ -52,15 +53,16 @@ abstract class AbstractFilesystemObject implements SupportedFunctionalities
     }
 
     /**
-     * @param $data
+     * @param mixed $data
+     * @return void
      */
-    abstract protected function setData($data): void;
+    abstract protected function setData(mixed $data): void;
 
     /**
-     * @param $data
-     * @return AbstractFilesystemObject
+     * @param mixed $data
+     * @return $this
      */
-    public function cloneWithData($data): AbstractFilesystemObject
+    public function cloneWithData(mixed $data): AbstractFilesystemObject
     {
         $support = FileFunctionalitiesContext::getFunctionalitySupport($this);
         $copyStorage = $support->copyStorage();

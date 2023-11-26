@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -9,8 +10,8 @@ use Vinograd\IO\Filesystem;
 
 class FileFunctionalities extends FunctionalitySupport
 {
-    /** @var \Vinograd\IO\Filesystem */
-    protected $filesystem;
+
+    protected Filesystem $filesystem;
 
     /**
      * @param Filesystem $filesystem
@@ -21,7 +22,7 @@ class FileFunctionalities extends FunctionalitySupport
     }
 
     /**
-     * @return \Vinograd\IO\Filesystem
+     * @return Filesystem
      */
     public function getFilesystem(): Filesystem
     {
@@ -29,7 +30,8 @@ class FileFunctionalities extends FunctionalitySupport
     }
 
     /**
-     * @param \Vinograd\IO\Filesystem $filesystem
+     * @param Filesystem $filesystem
+     * @return void
      */
     public function setFilesystem(Filesystem $filesystem): void
     {
@@ -41,8 +43,9 @@ class FileFunctionalities extends FunctionalitySupport
      * @param string $methodName
      * @param $arguments
      * @return mixed
+     * @throws BadMethodCallException
      */
-    public function fireCallMethodEvent($source, string $methodName, $arguments)
+    public function fireCallMethodEvent($source, string $methodName, $arguments): mixed
     {
         if (!isset($this->storage[$methodName])) {
             throw new BadMethodCallException('Calling unknown method ' . get_class($source) . '::' . $methodName . '(...))');
@@ -52,4 +55,5 @@ class FileFunctionalities extends FunctionalitySupport
         $support = $this->storage[$methodName];
         return $support->methodCalled($evt, $this->filesystem);
     }
+
 }

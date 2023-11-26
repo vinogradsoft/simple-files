@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -7,6 +8,7 @@ use Vinograd\Support\SupportedFunctionalities;
 
 abstract class AbstractFilesystemFunctionality extends AbstractFunctionality
 {
+
     /**
      * @param SupportedFunctionalities $component
      * @param string $methodName
@@ -24,4 +26,5 @@ abstract class AbstractFilesystemFunctionality extends AbstractFunctionality
     {
         FileFunctionalitiesContext::getFunctionalitySupport($component)->uninstallMethod($methodName);
     }
+
 }

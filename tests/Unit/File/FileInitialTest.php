@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\File;
 
@@ -27,7 +28,7 @@ class FileInitialTest extends AdditionalAssertCase
         self::assertTrue($functionality->has('write'));
         self::assertTrue($functionality->has('move'));
         self::assertTrue($functionality->has('assertInitBind'));
-        self::assertFileNotExists($file->getPath()->getSource());
+        self::assertFileDoesNotExist($file->getPath()->getSource());
     }
 
     public function testConstructEmpty()

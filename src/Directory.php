@@ -1,17 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
 use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Exception\NotFoundException;
-use Vinograd\Path\Path;
+use Compass\Path;
 use Vinograd\SimpleFiles\Functionality\DirectoryFunctionality;
 
 class Directory extends AbstractDirectory
 {
 
-    /** @var bool */
-    protected $synchronized = false;
+    protected bool $synchronized = false;
 
     /**
      * @param string $name
@@ -151,7 +151,7 @@ class Directory extends AbstractDirectory
     }
 
     /**
-     *
+     * @return void
      */
     public function delete(): void
     {
@@ -162,6 +162,9 @@ class Directory extends AbstractDirectory
         $this->removeAllDirectories();
     }
 
+    /**
+     * @return void
+     */
     protected function removeAllDirectories(): void
     {
         if (!empty($this->parent)) {
@@ -177,7 +180,7 @@ class Directory extends AbstractDirectory
     /**
      * @param string $path
      */
-    public function move(string $path)
+    public function move(string $path): void
     {
         $deletePaths = $this->getPathsAllDirectories();
         $this->moveAll($path);
@@ -219,6 +222,9 @@ class Directory extends AbstractDirectory
         }
     }
 
+    /**
+     * @return void
+     */
     protected function deleteAllFiles(): void
     {
         /** @var File $file */
@@ -287,7 +293,10 @@ class Directory extends AbstractDirectory
         return $result;
     }
 
-    protected function initBindWithFilesystem()
+    /**
+     * @return void
+     */
+    protected function initBindWithFilesystem(): void
     {
         FileFunctionalitiesContext::getFunctionalitySupport($this)
             ->fireCallMethodEvent($this, 'assertInitBind', [
@@ -313,7 +322,7 @@ class Directory extends AbstractDirectory
     }
 
     /**
-     *
+     * @return void
      */
     public function revokeAllSupports(): void
     {
@@ -324,4 +333,5 @@ class Directory extends AbstractDirectory
         $this->pathObject = null;
         $this->synchronized = false;
     }
+
 }

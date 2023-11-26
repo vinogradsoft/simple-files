@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
-use Vinograd\Path\Path;
+use Compass\Path;
 
 class FilesystemObject extends AbstractFilesystemObject
 {
-    /**@var Path */
-    protected $pathObject;
+
+    protected Path|null $pathObject = null;
 
     public function __construct(string $path)
     {
@@ -16,7 +17,7 @@ class FilesystemObject extends AbstractFilesystemObject
     }
 
     /**
-     *
+     * @return void
      */
     protected function initFunctionalities(): void
     {
@@ -24,26 +25,26 @@ class FilesystemObject extends AbstractFilesystemObject
     }
 
     /**
-     * @return Path
+     * @return Path|null
      */
-    public function getPath(): Path
+    public function getPath(): ?Path
     {
         return $this->pathObject;
     }
 
     /**
      * @param Path $path
+     * @return void
      */
-    protected function setPath(Path $path)
+    protected function setPath(Path $path): void
     {
         $this->pathObject = $path;
     }
 
     /**
-     *
-     * @param $data
+     * @inheritDoc
      */
-    protected function setData($data): void
+    protected function setData(mixed $data): void
     {
         try {
             $this->setPath(new Path($data));
@@ -53,4 +54,5 @@ class FilesystemObject extends AbstractFilesystemObject
             );
         }
     }
+
 }

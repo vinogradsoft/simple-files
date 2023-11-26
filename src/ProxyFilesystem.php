@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Vinograd\SimpleFiles;
 
@@ -8,8 +9,8 @@ use Vinograd\IO\Filesystem;
 
 class ProxyFilesystem implements Filesystem
 {
-    /** @var Filesystem */
-    protected $filesystem;
+
+    protected Filesystem $filesystem;
 
     /**
      * @param Filesystem $filesystem
@@ -156,4 +157,5 @@ class ProxyFilesystem implements Filesystem
         }
         throw new BadMethodCallException('Calling unknown method ' . get_class($this->filesystem) . '::' . $method . '(...))');
     }
+
 }

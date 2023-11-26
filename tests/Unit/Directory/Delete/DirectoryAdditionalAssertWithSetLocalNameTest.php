@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\Directory\Delete;
 
@@ -172,17 +173,17 @@ class DirectoryAdditionalAssertWithSetLocalNameTest extends AdditionalAssertCase
         $this->assertEmptyObjectFile($file6);
         $this->assertEmptyObjectFile($file7);
 
-        self::assertDirectoryNotExists($childLPath);
-        self::assertDirectoryNotExists($rootPath);
-        self::assertDirectoryNotExists($child1Path);
-        self::assertDirectoryNotExists($child2Path);
-        self::assertDirectoryNotExists($child3Path);
-        self::assertDirectoryNotExists($child4Path);
+        self::assertDirectoryDoesNotExist($childLPath);
+        self::assertDirectoryDoesNotExist($rootPath);
+        self::assertDirectoryDoesNotExist($child1Path);
+        self::assertDirectoryDoesNotExist($child2Path);
+        self::assertDirectoryDoesNotExist($child3Path);
+        self::assertDirectoryDoesNotExist($child4Path);
 
-        self::assertFileNotExists($file1Path);
-        self::assertFileNotExists($file7Path);
-        self::assertFileNotExists($file6Path);
-        self::assertFileNotExists($file3Path);
+        self::assertFileDoesNotExist($file1Path);
+        self::assertFileDoesNotExist($file7Path);
+        self::assertFileDoesNotExist($file6Path);
+        self::assertFileDoesNotExist($file3Path);
     }
 
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\DefaultFilesystem;
 
@@ -55,7 +56,7 @@ class DefaultFilesystemForDirectoriesTest extends FileSystemCase
         $this->createDirectory($directory = $this->outPath . '/directory');
         self::assertDirectoryExists($directory);//check
         $this->filesystem->removeDirectory($directory);
-        self::assertDirectoryNotExists($directory);
+        self::assertDirectoryDoesNotExist($directory);
     }
 
     public function testsRemoveDirectoryExcept()

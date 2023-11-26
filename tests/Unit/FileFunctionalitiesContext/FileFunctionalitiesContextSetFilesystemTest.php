@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Test\Unit\FileFunctionalitiesContext;
 
@@ -80,7 +81,7 @@ class FileFunctionalitiesContextSetFilesystemTest extends TestCase
 
     public function testSetFilesystemForPersonal()
     {
-        $file = HelperForAbstractClasses::mockFile('');
+        $file = HelperForAbstractClasses::mockFile('/');
         $functionality = new  DummyFunctionalityGetFilesystem();
         $functionality->install($file);
         $filesystem = $file->get();
@@ -99,7 +100,7 @@ class FileFunctionalitiesContextSetFilesystemTest extends TestCase
 
         FileFunctionalitiesContext::setFilesystem($newFilesystem = new ErrorEmulatorFilesystem());
 
-        $fileControl = HelperForAbstractClasses::mockFile('');
+        $fileControl = HelperForAbstractClasses::mockFile('/');
         $functionality->install($fileControl);
         $filesystemControl = $fileControl->get();
         self::assertSame($newFilesystem, $filesystemControl);
