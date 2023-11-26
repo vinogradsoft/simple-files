@@ -9,19 +9,16 @@ use Vinograd\SimpleFiles\Functionality\FileFunctionality;
 
 class File extends AbstractFile
 {
+
     const WRITE = 'WRITE';
     const COPY = 'COPY';
     const MOVE = 'MOVE';
     const WRITE_TO = 'WRITE_TO';
 
-    /** @var mixed */
-    protected $content;
-
-    /** @var bool */
-    protected $synchronized = false;
-
+    protected mixed $content = null;
+    protected bool $synchronized = false;
     /** @var FileBeforeWriteListener[] */
-    protected $listeners = [];
+    protected array $listeners = [];
 
     /**
      * @param string $name
@@ -112,7 +109,7 @@ class File extends AbstractFile
     /**
      * @param string $path
      */
-    public function move(string $path)
+    public function move(string $path): void
     {
         $resultPath = $path . $this->getLocalPath($this->pathObject->getSeparator());
         if (!$this->isBinded()) {
@@ -133,7 +130,10 @@ class File extends AbstractFile
         $this->setBindedFlag(true);
     }
 
-    protected function initBindWithFilesystem()
+    /**
+     * @return void
+     */
+    protected function initBindWithFilesystem(): void
     {
         FileFunctionalitiesContext::getFunctionalitySupport($this)
             ->fireCallMethodEvent($this, 'assertInitBind', [
@@ -152,6 +152,7 @@ class File extends AbstractFile
 
     /**
      * @param bool $value
+     * @return void
      */
     protected function setBindedFlag(bool $value): void
     {
@@ -175,9 +176,10 @@ class File extends AbstractFile
     }
 
     /**
-     * @param $content
+     * @param mixed $content
+     * @return void
      */
-    public function setContent($content): void
+    public function setContent(mixed $content): void
     {
         $this->content = $content;
     }
@@ -185,7 +187,7 @@ class File extends AbstractFile
     /**
      * @return mixed
      */
-    public function getContent()
+    public function getContent(): mixed
     {
         return $this->content;
     }
@@ -216,7 +218,7 @@ class File extends AbstractFile
     }
 
     /**
-     *
+     * @return void
      */
     public function read(): void
     {
@@ -252,7 +254,7 @@ class File extends AbstractFile
     /**
      * @param string $keyOperation
      */
-    public function fireBeforeWriteEvent(string $keyOperation)
+    public function fireBeforeWriteEvent(string $keyOperation): void
     {
         foreach ($this->listeners as $listener) {
             $listener->beforeWrite($this, $keyOperation);
@@ -291,7 +293,7 @@ class File extends AbstractFile
     }
 
     /**
-     *
+     * @return void
      */
     public function clearFileBeforeWriteListener(): void
     {
@@ -310,4 +312,5 @@ class File extends AbstractFile
         $this->parent = null;
         $this->pathObject = null;
     }
+
 }

@@ -5,11 +5,9 @@ namespace Vinograd\SimpleFiles;
 
 class NestedObject extends FilesystemObject
 {
-    /**@var NestedObject */
-    protected $parent;
 
-    /** @var null|string */
-    protected $localName = null;
+    protected NestedObject|null $parent = null;
+    protected null|string $localName = null;
 
     /**
      * @param NestedObject|null $parent

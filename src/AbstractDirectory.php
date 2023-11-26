@@ -13,10 +13,10 @@ abstract class AbstractDirectory extends NestedObject
     protected const ALREADY_EXISTS_MESSAGE = 'A directory or file named "%s" already exists.';
 
     /**@var AbstractDirectory[] */
-    protected $directories = [];
+    protected array $directories = [];
 
     /**@var AbstractFile[] */
-    protected $files = [];
+    protected array $files = [];
 
     /**
      * @return AbstractDirectory[]
@@ -85,8 +85,10 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param AbstractDirectory $directory
+     * @return void
+     * @throws TreeException
      */
-    public function removeDirectory(AbstractDirectory $directory)
+    public function removeDirectory(AbstractDirectory $directory): void
     {
         $name = $directory->getLocalName();
         if (!array_key_exists($name, $this->directories)) {
@@ -99,6 +101,7 @@ abstract class AbstractDirectory extends NestedObject
     /**
      * @param string $name
      * @return AbstractDirectory
+     * @throws NotFoundException
      */
     public function getDirectoryBy(string $name): AbstractDirectory
     {
@@ -108,6 +111,10 @@ abstract class AbstractDirectory extends NestedObject
         return $this->directories[$name];
     }
 
+    /**
+     * @return void
+     * @throws TreeException
+     */
     public function removeFromParent(): void
     {
         if (empty($this->parent)) {
@@ -141,7 +148,11 @@ abstract class AbstractDirectory extends NestedObject
         return $this->files;
     }
 
-
+    /**
+     * @param string $name
+     * @return AbstractFile
+     * @throws NotFoundException
+     */
     public function getFileBy(string $name): AbstractFile
     {
         if (!array_key_exists($name, $this->files)) {
@@ -152,6 +163,8 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param AbstractFile $file
+     * @return void
+     * @throws AlreadyExistException
      */
     public function addFile(AbstractFile $file): void
     {
@@ -169,8 +182,10 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param AbstractFile $file
+     * @return void
+     * @throws TreeException
      */
-    public function removeFile(AbstractFile $file)
+    public function removeFile(AbstractFile $file): void
     {
         $name = $file->getLocalName();
         if (!array_key_exists($name, $this->files)) {
@@ -182,6 +197,7 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param string|null $name
+     * @throws TreeException
      */
     public function setLocalName(?string $name = null): void
     {
@@ -201,6 +217,7 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param string $oldName
+     * @return void
      * @throws TreeException
      */
     public function updateDirectoryName(string $oldName): void
@@ -225,6 +242,7 @@ abstract class AbstractDirectory extends NestedObject
 
     /**
      * @param string $oldName
+     * @return void
      * @throws TreeException
      */
     public function updateFileName(string $oldName): void

@@ -13,8 +13,8 @@ use Vinograd\Support\Functionality;
 
 class DirectoryFunctionality extends AbstractFilesystemFunctionality
 {
-    /** @var DirectoryFunctionality|null */
-    private static $self = null;
+
+    private static DirectoryFunctionality|null $self = null;
 
     /**
      * @inheritDoc
@@ -55,7 +55,7 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
                 return true;
             }
         }
-        //delete
+
         if (count($arguments) !== 1) {
             return false;
         }
@@ -66,8 +66,10 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
      * @param Directory $directory
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
+     * @throws NotFoundException
      */
-    public function assertInitBind(Directory $directory, Filesystem $filesystem, string $path)
+    public function assertInitBind(Directory $directory, Filesystem $filesystem, string $path): void
     {
         try {
             $filesystem->getAbsolutePath($path);
@@ -80,6 +82,7 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
      * @param Directory $directory
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
      * @throws IOException
      */
     public function sync(Directory $directory, Filesystem $filesystem, string $path): void
@@ -93,6 +96,8 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
      * @param Directory $directory
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
+     * @throws IOException
      */
     protected function createDirectory(Directory $directory, Filesystem $filesystem, string $path): void
     {
@@ -103,6 +108,8 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
      * @param Directory $directory
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
+     * @throws IOException
      */
     public function copy(Directory $directory, Filesystem $filesystem, string $path): void
     {
@@ -114,9 +121,11 @@ class DirectoryFunctionality extends AbstractFilesystemFunctionality
     /**
      * @param Directory $directory
      * @param Filesystem $filesystem
-     * @param string[] $deletePaths
+     * @param array $deletePaths
+     * @return void
+     * @throws IOException
      */
-    public function delete(Directory $directory, Filesystem $filesystem, array $deletePaths)
+    public function delete(Directory $directory, Filesystem $filesystem, array $deletePaths): void
     {
         arsort($deletePaths);
         foreach ($deletePaths as $path) {

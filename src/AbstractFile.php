@@ -7,8 +7,9 @@ use Vinograd\SimpleFiles\Exception\TreeException;
 
 abstract class AbstractFile extends NestedObject
 {
+
     /**
-     *
+     * @return void
      */
     public function removeFromParent(): void
     {
@@ -45,12 +46,12 @@ abstract class AbstractFile extends NestedObject
     }
 
     /**
-     *
+     * @return void
      */
     abstract public function write(): void;
 
     /**
-     *
+     * @return void
      */
     public function delete(): void
     {
@@ -59,7 +60,7 @@ abstract class AbstractFile extends NestedObject
     }
 
     /**
-     *
+     * @return void
      */
     abstract protected function removeSelf(): void;
 
@@ -75,7 +76,7 @@ abstract class AbstractFile extends NestedObject
      * @param string $name
      * @return false|string
      */
-    private function getExtensionImpl(string $name)
+    private function getExtensionImpl(string $name): false|string
     {
         $n = strrpos($name, ".");
         return ($n === false) ? "" : substr($name, $n + 1);
@@ -88,4 +89,5 @@ abstract class AbstractFile extends NestedObject
     {
         return $this->getExtensionImpl((string)$this->pathObject->getLast());
     }
+
 }

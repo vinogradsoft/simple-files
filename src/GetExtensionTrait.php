@@ -5,6 +5,7 @@ namespace Vinograd\SimpleFiles;
 
 trait GetExtensionTrait
 {
+
     /**
      * @return string
      */
@@ -14,4 +15,5 @@ trait GetExtensionTrait
         $n = strrpos($name, ".");
         return ($n === false) ? "" : substr($name, $n + 1);
     }
+
 }

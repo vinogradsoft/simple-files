@@ -6,17 +6,17 @@ namespace Vinograd\SimpleFiles\Functionality;
 use Vinograd\IO\Exception\IOException;
 use Vinograd\IO\Exception\NotFoundException;
 use Vinograd\IO\Filesystem;
-use Compass\Exception\InvalidPathException;
 use Vinograd\SimpleFiles\AbstractFile;
 use Vinograd\SimpleFiles\AbstractFilesystemFunctionality;
 use Vinograd\SimpleFiles\File;
 use Vinograd\Support\SupportedFunctionalities;
 use Vinograd\Support\Functionality;
+use Compass\Exception\InvalidPathException;
 
 class FileFunctionality extends AbstractFilesystemFunctionality
 {
 
-    private static $self = null;
+    private static Functionality|null $self = null;
 
     /**
      * @inheritDoc
@@ -34,6 +34,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
 
     /**
      * @param SupportedFunctionalities $component
+     * @return void
      */
     protected function uninstallMethods(SupportedFunctionalities $component): void
     {
@@ -63,7 +64,6 @@ class FileFunctionality extends AbstractFilesystemFunctionality
                 return true;
             }
         }
-        //remove
         return empty($arguments);
     }
 
@@ -71,8 +71,10 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
+     * @throws NotFoundException
      */
-    public function assertInitBind(File $file, Filesystem $filesystem, string $path)
+    public function assertInitBind(File $file, Filesystem $filesystem, string $path): void
     {
         try {
             $filesystem->getAbsolutePath($path);
@@ -85,6 +87,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
      * @throws IOException
      */
     public function sync(File $file, Filesystem $filesystem, string $path): void
@@ -98,6 +101,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
      * @throws IOException
      */
     public function copy(File $file, Filesystem $filesystem, string $path): void
@@ -109,9 +113,10 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
      * @throws IOException
      */
-    public function move(File $file, Filesystem $filesystem, string $path)
+    public function move(File $file, Filesystem $filesystem, string $path): void
     {
         $this->copyOrMove($file, $filesystem, $path, File::MOVE);
     }
@@ -121,9 +126,10 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param Filesystem $filesystem
      * @param string $path
      * @param string $keyOperation
+     * @return void
      * @throws IOException
      */
-    protected function copyOrMove(File $file, Filesystem $filesystem, string $path, string $keyOperation)
+    protected function copyOrMove(File $file, Filesystem $filesystem, string $path, string $keyOperation): void
     {
         $this->read($file, $filesystem, $file->getSourcePath());
         $file->fireBeforeWriteEvent($keyOperation);
@@ -134,6 +140,7 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
      */
     protected function createFile(File $file, Filesystem $filesystem, string $path): void
     {
@@ -144,8 +151,10 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param File $file
      * @param Filesystem $filesystem
      * @param string $path
+     * @return void
+     * @throws NotFoundException
      */
-    public function read(File $file, Filesystem $filesystem, string $path)
+    public function read(File $file, Filesystem $filesystem, string $path): void
     {
         if ($filesystem->exists($path)) {
             $file->setContent($filesystem->fileGetContents($path));
@@ -158,8 +167,10 @@ class FileFunctionality extends AbstractFilesystemFunctionality
      * @param AbstractFile $file
      * @param Filesystem $filesystem
      * @param string $writePath
+     * @return void
+     * @throws InvalidPathException
      */
-    public function write(AbstractFile $file, Filesystem $filesystem, string $writePath)
+    public function write(AbstractFile $file, Filesystem $filesystem, string $writePath): void
     {
         $dir = dirname($writePath);
         if (!$filesystem->isDirectory($dir)) {
@@ -171,6 +182,8 @@ class FileFunctionality extends AbstractFilesystemFunctionality
     /**
      * @param AbstractFile $file
      * @param Filesystem $filesystem
+     * @return void
+     * @throws NotFoundException
      */
     public function remove(AbstractFile $file, Filesystem $filesystem)
     {

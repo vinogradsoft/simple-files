@@ -13,26 +13,18 @@ use Vinograd\IO\Filesystem;
 class FileFunctionalitiesContext extends ContextFunctionalitySupport
 {
 
-    /** @var FunctionalitySupport|null */
-    protected static $globalDirectorySupport = null;
-
-    /** @var FunctionalitySupport|null */
-    protected static $globalFileSupport = null;
-
-    /** @var Filesystem|null */
-    protected static $filesystem = null;
-
-    /** @var ProxyFilesystem|null */
-    protected static $filesystemForGroups = null;
-
-    /** @var ProxyFilesystem|null */
-    protected static $filesystemForGlobal = null;
+    protected static FunctionalitySupport|null $globalDirectorySupport = null;
+    protected static FunctionalitySupport|null $globalFileSupport = null;
+    protected static Filesystem|null $filesystem = null;
+    protected static ProxyFilesystem|null $filesystemForGroups = null;
+    protected static ProxyFilesystem|null $filesystemForGlobal = null;
 
     /**
      * @param Functionality $support
      * @param string $methodName
+     * @return void
      */
-    public static function registerGlobalFunctionalityForDirectories(Functionality $support, string $methodName)
+    public static function registerGlobalFunctionalityForDirectories(Functionality $support, string $methodName): void
     {
         if (self::$globalDirectorySupport === null) {
             self::$globalDirectorySupport = static::createGlobalFunctionalitySupport();
@@ -42,8 +34,9 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
 
     /**
      * @param string $methodName
+     * @return void
      */
-    public static function unregisterGlobalFunctionalityForDirectories(string $methodName)
+    public static function unregisterGlobalFunctionalityForDirectories(string $methodName): void
     {
         if (self::$globalDirectorySupport === null) {
             throw new LogicException($methodName . '(...))' . ' - method has not been registered.');
@@ -69,7 +62,7 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
      * @param array $arguments
      * @return mixed
      */
-    public static function fireGlobalDirectoryMethod($source, string $methodName, array $arguments)
+    public static function fireGlobalDirectoryMethod($source, string $methodName, array $arguments): mixed
     {
         if (self::$globalDirectorySupport === null) {
             throw new BadMethodCallException('Calling unknown method ' . get_class($source) . '::' . $methodName . '(...))');
@@ -80,8 +73,9 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
     /**
      * @param Functionality $support
      * @param string $methodName
+     * @return void
      */
-    public static function registerGlobalFunctionalityForFiles(Functionality $support, string $methodName)
+    public static function registerGlobalFunctionalityForFiles(Functionality $support, string $methodName): void
     {
         if (self::$globalFileSupport === null) {
             self::$globalFileSupport = static::createGlobalFunctionalitySupport();
@@ -91,8 +85,9 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
 
     /**
      * @param string $methodName
+     * @return void
      */
-    public static function unregisterGlobalFunctionalityForFiles(string $methodName)
+    public static function unregisterGlobalFunctionalityForFiles(string $methodName): void
     {
         if (self::$globalFileSupport === null) {
             throw new LogicException($methodName . '(...))' . ' - method has not been registered.');
@@ -118,7 +113,7 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
      * @param array $arguments
      * @return mixed
      */
-    public static function fireGlobalFileMethod($source, string $methodName, array $arguments)
+    public static function fireGlobalFileMethod($source, string $methodName, array $arguments): mixed
     {
         if (static::$globalFileSupport === null) {
             throw new BadMethodCallException('Calling unknown method ' . get_class($source) . '::' . $methodName . '(...))');
@@ -185,14 +180,18 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
 
     /**
      * @param Filesystem $filesystem
+     * @return void
      */
-    public static function setFilesystem(Filesystem $filesystem)
+    public static function setFilesystem(Filesystem $filesystem): void
     {
         static::getFilesystemForGlobal()->setFilesystem($filesystem);
         static::getFilesystemForGroups()->setFilesystem($filesystem);
         static::$filesystem = $filesystem;
     }
 
+    /**
+     * @return void
+     */
     public static function reset(): void
     {
         static::$functionalitySupports = null;
@@ -203,4 +202,5 @@ class FileFunctionalitiesContext extends ContextFunctionalitySupport
         static::$filesystemForGroups = null;
         static::$filesystemForGlobal = null;
     }
+
 }

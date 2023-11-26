@@ -8,6 +8,7 @@ use Vinograd\IO\Filesystem;
 
 class DefaultFilesystem implements FileSystem
 {
+
     /**
      * @param string $path
      * @return string
@@ -138,4 +139,5 @@ class DefaultFilesystem implements FileSystem
         }
         return $result;
     }
+
 }
