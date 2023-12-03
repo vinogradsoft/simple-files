@@ -10,54 +10,51 @@
 
 # Simple-files
 
-> Simple-files - это универсальная библиотека для работы с файлами и директориями, которая упрощает сложные манипуляции
-> с файлами.
+> 👉 Simple-files is a universal library for working with files and directories that simplifies complex file
+> manipulations.
 
-## Установка
+## Install
 
-- Минимальная версия php 8.0
-- Предпочтительный способ установки - через [composer](http://getcomposer.org/download/).
+Requires PHP 8.0 or newer.
 
-> Windows не поддерживается.
-
-Запустите команду
+To install with composer:
 
 ```
 composer require vinogradsoft/simple-files "^2.0"
 ```
 
-## Руководство
+> ❗ Windows is not supported.
 
-* [Общая информация](./docs/guide-ru/general-information.md)
+## User Guide
 
-### Работа с файлами
+* [General Information](./docs/guide-en/general-information.md)
 
-* [Чтение файлов](./docs/guide-ru/reading-files.md)
-* [Запись файлов](./docs/guide-ru/recording-files.md)
-* [Копирование файлов](./docs/guide-ru/copying-files.md)
-* [Перемещение файлов](./docs/guide-ru/moving-files.md)
-* [Удаление файлов](./docs/guide-ru/deleting-files.md)
-* [Обработка содержимого файла перед записью](./docs/guide-ru/processing-file-contents-before-writing.md)
+### Working With Files
 
-### Работа с директориями
+* [Reading Files](./docs/guide-en/reading-files.md)
+* [Recording Files](./docs/guide-en/recording-files.md)
+* [Copying Files](./docs/guide-en/copying-files.md)
+* [Moving Files](./docs/guide-en/moving-files.md)
+* [Deleting Files](./docs/guide-en/deleting-files.md)
+* [Processing File Contents Before Writing](./docs/guide-en/processing-file-contents-before-writing.md)
 
-* [Структурные методы директорий](./docs/guide-ru/directory-structural-methods.md)
-* [Прикладные методы директорий](./docs/guide-ru/applied-methods.md)
-* [Копирование директорий](./docs/guide-ru/copying-directories.md)
-* [Запись директорий](./docs/guide-ru/writing-directories.md)
-* [Перемещение директорий](./docs/guide-ru/moving-directories.md)
-* [Удаление директорий](./docs/guide-ru/removing-directories.md)
+### Working With Directories
 
-## Тестировать
+* [Structural directory methods](./docs/guide-en/directory-structural-methods.md)
+* [Applied Methods](./docs/guide-en/applied-methods.md)
+* [Copying Directories](./docs/guide-en/copying-directories.md)
+* [Writing Directories](./docs/guide-en/writing-directories.md)
+* [Moving Directories](./docs/guide-en/moving-directories.md)
+* [Removing Directories](./docs/guide-en/removing-directories.md)
 
-```
- php composer tests 
-```
+## Testing
 
-## Содействие
+``` php composer tests ```
 
-Пожалуйста, смотрите [ВКЛАД](CONTRIBUTING.md) для получения подробной информации.
+## Contributing
 
-## Лицензия
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-Лицензия MIT (MIT). Пожалуйста, смотрите [файл лицензии](LICENSE) для получения дополнительной информации.
+## License
+
+The MIT License (MIT). Please see License [File](LICENSE) for more information.
