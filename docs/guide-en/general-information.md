@@ -15,7 +15,7 @@ responsible not only for itself, but also for its child elements. So, for exampl
 directory, the copy methods for all child elements will be launched.
 
 In general, objects that model a file system have two states: when the object is not associated and when the object is
-associated with the file system. The connection to the file system is determined by the presence of a path to the
+associated with the file system. The bonded to the file system is determined by the presence of a path to the
 file/directory in the object.
 
 In the case where an object is associated with a file system, it has two paths:
@@ -25,8 +25,7 @@ In the case where an object is associated with a file system, it has two paths:
 
 The path to the file system can be obtained using the `getPath()` method, and the path in the object model using the
 `getLocalPath()` method. The `getPath()` method returns a `Compass\Path` object, and the `getLocalPath()` method returns
-a path
-string.
+a path string.
 
 > 📢 The `Compass\Path` object is an object representation of the path string to a file; you can read more about it in
 > the
@@ -36,7 +35,7 @@ string.
 
 Object creation is possible in both states. The process for creating file and directory objects is identical.
 
-To create an object without connection to the file system, you need to use the `new` operator. It is important to
+To create an object without a file system link, use the `new` statement. It is important to
 understand that you only need to specify the name of the file or folder, and not the path to an existing file. If you do
 try to specify a path, the system will throw a `LogicException`. A similar exception will be thrown if an empty string
 is passed. For everything to work correctly, you only need to specify the name.
